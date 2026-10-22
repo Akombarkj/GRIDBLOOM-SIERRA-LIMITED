@@ -1,5 +1,5 @@
 import Link from "next/link";
-import howItWorksBackground from "../../image/lv_0_20260125115916.jpg";
+import howItWorksBackground from "../../image/1 (3).png";
 
 const systemSteps = [
   {

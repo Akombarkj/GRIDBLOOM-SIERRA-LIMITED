@@ -1,151 +1,47 @@
+import Link from "next/link";
+
 const audiences = [
-  {
-    title: "Residential connections",
-    description: "For homes that need safe light, phone charging, fans, and small household appliances.",
-    examples: ["Lighting for evening study and family time", "Charging phones and radios", "Power for fans and small TVs"],
-  },
-  {
-    title: "Commercial connections",
-    description: "For shops, markets, and small businesses that need more reliable daily power.",
-    examples: ["Cold storage for food and drinks", "Power for tools and repair work", "Longer service hours for customers"],
-  },
-  {
-    title: "Institutional connections",
-    description: "For schools, health clinics, and community centers that depend on dependable electricity.",
-    examples: ["Reliable lighting for evening classes", "Vaccine refrigeration and medical equipment", "Power for computers and shared community services"],
-  },
+  { number: "01", title: "For homes", body: "Practical electricity for lighting, phone charging, fans, and everyday household needs.", points: ["Light for family time and study", "Power for small appliances", "A local connection to ask about"] },
+  { number: "02", title: "For businesses", body: "Energy access for shops, markets, workshops, and local services that need power through the day.", points: ["Support for daily trading", "Power for tools and equipment", "Options shaped to local service"] },
+  { number: "03", title: "For institutions", body: "Planning conversations for schools, clinics, and shared community services with energy needs.", points: ["Lighting and learning spaces", "Health and essential services", "Discuss demand with our team"] },
 ];
 
-const systemSteps = [
-  "Solar panels generate power",
-  "Batteries store it",
-  "Power is distributed through the mini-grid",
-  "Prepaid meters at each connection track usage",
-];
-
-const components = [
-  "Solar panels installed where the sun reaches them",
-  "Battery storage to keep power available after sunset",
-  "Distribution lines connecting homes, shops, and services",
-  "Prepaid smart meter at the premises",
-];
-
-const capacityTiers = [
-  { label: "[PLACEHOLDER — confirm with client]", capacity: "[PLACEHOLDER — confirm with client]", price: "[PLACEHOLDER — confirm with client]" },
-  { label: "[PLACEHOLDER — confirm with client]", capacity: "[PLACEHOLDER — confirm with client]", price: "[PLACEHOLDER — confirm with client]" },
-  { label: "[PLACEHOLDER — confirm with client]", capacity: "[PLACEHOLDER — confirm with client]", price: "[PLACEHOLDER — confirm with client]" },
+const systemParts = [
+  { title: "Generate", body: "Solar panels capture energy from sunlight." },
+  { title: "Store", body: "Batteries hold energy for use when the sun is not shining." },
+  { title: "Distribute", body: "A local network carries electricity to connected premises." },
+  { title: "Measure", body: "A meter records the electricity used at each connection." },
 ];
 
 export default function SolutionsPage() {
   return (
-    <div className="solutions-page">
-      <section
-        className="solutions-hero"
-        style={{
-          backgroundImage: "linear-gradient(135deg, rgba(15, 61, 34, 0.85), rgba(63, 163, 65, 0.72)), url('/solutions-bg.jpg')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
-        <div className="section-inner solution-inner">
-          <div className="section-kicker">GridBloom Solutions</div>
-          <div className="solutions-title-grid">
-            <div>
-              <h1>Mini-grid solar for your community</h1>
-              <p className="intro-copy">
-                A mini-grid is a local solar power system that makes electricity close to where people live and work.
-                It generates power from the sun, stores it, and sends it through a small network of lines directly to a community,
-                without needing the national grid.
-              </p>
-              <p className="intro-copy">
-                That means homes, shops, schools, and clinics can use lights, appliances, and services in a more dependable way.
-              </p>
-            </div>
-            <aside className="intro-aside">
-              <span className="aside-orbit"></span>
-              <span className="aside-icon">✦</span>
-              <span className="aside-label">Local solar distribution</span>
-            </aside>
+    <main className="public-page solutions-page">
+      <section className="public-hero solutions-hero">
+        <div className="public-container public-hero-grid">
+          <div className="public-hero-copy">
+            <span className="public-eyebrow">GridBloom solutions</span>
+            <h1>Mini-grid solar, made for local life.</h1>
+            <p>A mini-grid generates electricity close to where people live and work. Solar panels, battery storage, and a local distribution network work together to serve connected homes, businesses, and community services.</p>
+            <div className="public-actions"><Link className="public-button" href="/request-connection">Check your area <span aria-hidden="true">→</span></Link><Link className="public-text-link" href="/how-it-works">How a mini-grid works</Link></div>
+          </div>
+          <div className="public-hero-photo solutions-photo" role="img" aria-label="Solar panels in an open landscape"><span className="public-photo-caption"><span className="public-caption-mark" aria-hidden="true">✳</span> Generation, storage, local distribution</span></div>
+        </div>
+      </section>
+      <section className="public-section">
+        <div className="public-container">
+          <div className="public-section-heading"><span className="public-eyebrow">Who it can serve</span><h2>Energy for the places that keep a community moving.</h2><p>Every connection is different. Share your location and intended use so our team can help explain what may be available.</p></div>
+          <div className="public-card-grid three-up">
+            {audiences.map((audience) => <article className="public-card audience-card" key={audience.number}><span className="public-card-number">{audience.number}</span><h3>{audience.title}</h3><p>{audience.body}</p><ul>{audience.points.map((point) => <li key={point}>{point}</li>)}</ul></article>)}
           </div>
         </div>
       </section>
-
-      <section className="section solution-section">
-        <div className="section-inner">
-          <h2 className="section-title">Who it is for</h2>
-          <div className="audience-grid">
-            {audiences.map((audience) => (
-              <article className="audience-card" key={audience.title}>
-                <span className="audience-icon" aria-hidden="true">✦</span>
-                <h3>{audience.title}</h3>
-                <p>{audience.description}</p>
-                <ul className="example-list">
-                  {audience.examples.map((example) => (
-                    <li key={example}>{example}</li>
-                  ))}
-                </ul>
-              </article>
-            ))}
-          </div>
+      <section className="public-section public-section-tint">
+        <div className="public-container">
+          <div className="public-section-heading"><span className="public-eyebrow">The system</span><h2>Four parts working together.</h2><p>A local energy system connects generation with the people who use the electricity.</p></div>
+          <ol className="public-process-grid">{systemParts.map((part, index) => <li key={part.title}><span className="public-process-number">0{index + 1}</span><h3>{part.title}</h3><p>{part.body}</p></li>)}</ol>
         </div>
       </section>
-
-      <section className="section solution-section system-section">
-        <div className="section-inner">
-          <h2 className="section-title">How the system works</h2>
-          <div className="system-steps">
-            {systemSteps.map((step, index) => (
-              <div className="system-step" key={step}>
-                <span className="step-index">{index + 1}</span>
-                <span className="step-line" aria-hidden="true"></span>
-                <span className="step-text">{step}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section solution-section">
-        <div className="section-inner">
-          <h2 className="section-title">System components</h2>
-          <div className="components-grid">
-            {components.map((component, index) => (
-              <article className="component-line" key={component}>
-                <span className="component-index">{index + 1}</span>
-                <span className="component-text">{component}</span>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section solution-section tiers-section">
-        <div className="section-inner">
-          <h2 className="section-title">Connection tiers</h2>
-          <div className="tiers-grid">
-            <div className="tier-heading">
-              <span className="tier-label">Tier</span>
-              <span className="tier-label">Capacity</span>
-              <span className="tier-label">Price</span>
-            </div>
-            {capacityTiers.map((tier, index) => (
-              <div className="tier-row" key={index}>
-                <span className="tier-value">{tier.label}</span>
-                <span className="tier-value">{tier.capacity}</span>
-                <span className="tier-value">{tier.price}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="final-cta">
-        <div className="final-cta-inner">
-          <h2>Ready to get connected?</h2>
-          <a className="primary-button" href="/request-connection">Request a Connection</a>
-        </div>
-      </section>
-    </div>
+      <section className="public-cta"><div className="public-container public-cta-inner"><div><span className="public-eyebrow">Start with your location</span><h2>Let’s find out what may be available.</h2><p>Our team can review your area and discuss the next steps.</p></div><Link className="public-button" href="/request-connection">Request a connection <span aria-hidden="true">→</span></Link></div></section>
+    </main>
   );
 }

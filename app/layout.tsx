@@ -5,8 +5,13 @@ import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 
 export const metadata: Metadata = {
-  title: "GridBloom Sierra Limited",
-  description: "GridBloom Sierra Limited mini-grid solar power provider in Sierra Leone.",
+  title: "GridBloom Sierra Limited | Cleaner Energy, Stronger Communities",
+  description: "Discover practical clean energy solutions for homes, businesses, and communities in Sierra Leone with GridBloom Sierra Limited.",
+  openGraph: {
+    title: "GridBloom Sierra Limited | Cleaner Energy, Stronger Communities",
+    description: "Practical clean energy solutions for homes, businesses, and communities in Sierra Leone.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

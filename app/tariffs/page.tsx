@@ -1,76 +1,27 @@
 import Link from "next/link";
 
-const tariffPlans = [
-  {
-    title: "Home Energy",
-    icon: "☀",
-    price: "Flexible",
-    copy: "Simple prepaid power for daily household needs.",
-    list: ["Lighting and phone charging", "Small appliance support", "Pay-as-you-go top ups"],
-  },
-  {
-    title: "Business Energy",
-    icon: "▦",
-    price: "Tied to usage",
-    copy: "A connection model for shops, markets, and service businesses.",
-    list: ["Longer service hours", "Shop and trade power", "Daily prepaid balancing"],
-  },
-  {
-    title: "Institution Energy",
-    icon: "◇",
-    price: "Service review",
-    copy: "Reliable energy planning for health, learning, and public services.",
-    list: ["Clinic and school access", "Public service demand", "Energy planning support"],
-  },
+const billingPoints = [
+  { number: "01", title: "Your connection", body: "The service type and approved connection capacity help shape your energy plan." },
+  { number: "02", title: "Your usage", body: "The electricity you use is measured at your premises by a meter." },
+  { number: "03", title: "Your area", body: "Availability and service arrangements are confirmed with the local team." },
 ];
 
 export default function TariffsPage() {
   return (
-    <div className="tariffs-page">
-      <section className="tariffs-hero">
-        <div className="section-inner">
-          <div className="page-intro-block">
-            <span className="section-kicker">GridBloom Tariffs</span>
-            <h1>Tariffs & billing</h1>
-            <p>
-              GridBloom service is structured around transparent prepaid power access that matches local community need and service reliability.
-            </p>
-          </div>
+    <main className="public-page tariffs-page">
+      <section className="public-hero tariffs-hero">
+        <div className="public-container public-hero-grid">
+          <div className="public-hero-copy"><span className="public-eyebrow">Tariffs and billing</span><h1>Clear information before you connect.</h1><p>Connection costs and billing details depend on the service available in your area. Our team can talk you through the relevant information for your home, business, or institution.</p><div className="public-actions"><Link className="public-button" href="/request-connection">Ask about a connection <span aria-hidden="true">→</span></Link><Link className="public-text-link" href="/contact">Contact our team</Link></div></div>
+          <div className="public-hero-photo tariffs-photo" role="img" aria-label="Solar panels collecting sunlight"><span className="public-photo-caption"><span className="public-caption-mark" aria-hidden="true">✳</span> Understand the details for your area</span></div>
         </div>
       </section>
-
-      <section className="section">
-        <div className="section-inner">
-          <div className="section-intro">
-            <h2 className="section-title">Power packages designed around your daily use</h2>
-          </div>
-          <div className="tariffs-grid-list">
-            {tariffPlans.map((plan) => (
-              <article className="tariff-card" key={plan.title}>
-                <span className="tariff-icon" aria-hidden="true">{plan.icon}</span>
-                <h3>{plan.title}</h3>
-                <p>{plan.copy}</p>
-                <div className="tariff-price">{plan.price}</div>
-                <ul>
-                  {plan.list.map((line) => <li key={line}>{line}</li>)}
-                </ul>
-              </article>
-            ))}
-          </div>
+      <section className="public-section">
+        <div className="public-container">
+          <div className="public-section-heading"><span className="public-eyebrow">What affects billing</span><h2>Details shaped around the connection.</h2><p>We’ll confirm the applicable charges and payment information directly with you before you proceed.</p></div>
+          <div className="public-card-grid three-up">{billingPoints.map((item) => <article className="public-card principle-card" key={item.number}><span className="public-card-number">{item.number}</span><h3>{item.title}</h3><p>{item.body}</p></article>)}</div>
         </div>
       </section>
-
-      <section className="section" style={{ background: "var(--sage-muted)" }}>
-        <div className="section-inner">
-          <div className="final-cta-inner">
-            <div>
-              <span className="section-kicker">Need a first connection?</span>
-              <h2 className="section-title">Start with a service check.</h2>
-            </div>
-            <Link className="primary-button" href="/request-connection">Request a Connection</Link>
-          </div>
-        </div>
-      </section>
-    </div>
+      <section className="public-section public-section-tint"><div className="public-container public-note-panel"><span className="public-note-icon" aria-hidden="true">i</span><div><h2>Need a specific tariff or billing detail?</h2><p>Share your location and connection type so we can direct your question to the right team.</p></div><Link className="public-inline-link" href="/contact">Get in touch <span aria-hidden="true">→</span></Link></div></section>
+    </main>
   );
 }

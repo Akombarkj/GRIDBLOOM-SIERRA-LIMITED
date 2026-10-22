@@ -1,61 +1,61 @@
+import Image from "next/image";
 import Link from "next/link";
+
+function MailIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M3.5 6.5h17v11h-17z" />
+      <path d="m4 7 8 6 8-6" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="footer-grid">
         <div className="footer-brand">
-          <span className="footer-logo-word">GRIDBLOOM</span>
-          <span className="footer-sub">SIERRA LIMITED</span>
-          <p className="footer-copy">
-            Reliable, cleaner energy for homes, businesses and communities.
-          </p>
-          <div className="social-links" aria-label="Social links">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="LinkedIn">in</a>
-            <a href="#" aria-label="WhatsApp">wa</a>
-          </div>
+          <Link className="footer-brand-lockup" href="/" aria-label="GridBloom Sierra Limited home">
+            <Image src="/site/gridbloom-mark.webp" alt="" width={58} height={58} />
+            <span><strong>GRIDBLOOM</strong><small>SIERRA LIMITED</small></span>
+          </Link>
+          <p className="footer-tagline">Cleaner Energy.<br />Stronger Communities.</p>
         </div>
 
-        <div className="footer-column">
-          <h3>Solutions</h3>
+        <nav className="footer-column" aria-label="Solutions">
+          <h2>Solutions</h2>
           <ul>
             <li><Link href="/solutions">Home Energy</Link></li>
             <li><Link href="/solutions">Business Energy</Link></li>
             <li><Link href="/solutions">Community Energy</Link></li>
           </ul>
-        </div>
+        </nav>
 
-        <div className="footer-column">
-          <h3>Company</h3>
+        <nav className="footer-column" aria-label="Company">
+          <h2>Company</h2>
           <ul>
             <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/communities">Our Impact</Link></li>
-            <li><Link href="/contact">Careers</Link></li>
+            <li><Link href="/how-it-works">How It Works</Link></li>
             <li><Link href="/contact">Contact</Link></li>
           </ul>
-        </div>
+        </nav>
 
-        <div className="footer-column">
-          <h3>Support</h3>
+        <div className="footer-column footer-contact-block">
+          <h2>Support &amp; Contact</h2>
           <ul>
             <li><Link href="/contact">Help Center</Link></li>
-            <li><Link href="/request-connection">Request a Connection</Link></li>
             <li><Link href="/faq">FAQs</Link></li>
           </ul>
-        </div>
-
-        <div className="footer-column">
-          <h3>Contact</h3>
-          <ul className="footer-contact">
-            <li>hello@gridbloom.com</li>
-            <li>+XXX XXX XXX XXX</li>
-          </ul>
+          <a className="footer-email" href="mailto:hello@gridbloom-sl.com">
+            <MailIcon />
+            <span>hello@gridbloom-sl.com</span>
+          </a>
         </div>
       </div>
 
       <div className="footer-bottom">
-        <span>© 2026 GridBloom. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} GridBloom Sierra Limited. All rights reserved.</span>
+        <span className="footer-bottom-note">Cleaner energy, built around community.</span>
       </div>
     </footer>
   );
