@@ -46,9 +46,9 @@ export default function Footer() {
             <li><Link href="/contact">Help Center</Link></li>
             <li><Link href="/faq">FAQs</Link></li>
           </ul>
-          <a className="footer-email" href="mailto:hello@gridbloom-sl.com">
+          <a className="footer-email" href="mailto:hello@gridbloom.com">
             <MailIcon />
-            <span>hello@gridbloom-sl.com</span>
+            <span>hello@gridbloom.com</span>
           </a>
         </div>
       </div>

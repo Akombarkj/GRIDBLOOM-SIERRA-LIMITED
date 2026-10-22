@@ -6,7 +6,7 @@ const questions = [
   { question: "Who can ask about a connection?", answer: "Households, businesses, institutions, and community services can contact us about their energy needs." },
   { question: "How does a solar mini-grid work?", answer: "Solar panels generate electricity, batteries store energy, and local distribution lines carry power to connected premises. A meter records electricity use." },
   { question: "Where can I ask about tariffs or billing?", answer: "Tariffs and billing depend on the service available in your area. Contact our team with your location and connection type for relevant details." },
-  { question: "How do I contact GridBloom?", answer: "Email hello@gridbloom-sl.com or use the contact form to send your question to the team." },
+  { question: "How do I contact GridBloom?", answer: "Email hello@gridbloom.com or use the contact form to send your question to the team." },
 ];
 
 export default function FAQPage() {

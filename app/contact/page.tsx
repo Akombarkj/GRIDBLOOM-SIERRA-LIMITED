@@ -6,8 +6,8 @@ const contacts = [
     title: "General Enquiries",
     icon: "✉",
     body: "Speak with our team about supply, service areas, and community development opportunities.",
-    detail: "hello@gridbloom-sl.com",
-    href: "mailto:hello@gridbloom-sl.com",
+    detail: "hello@gridbloom.com",
+    href: "mailto:hello@gridbloom.com",
   },
   {
     title: "Community Connections",
@@ -33,7 +33,7 @@ export default function ContactPage() {
           <span className="public-eyebrow">Contact GridBloom</span>
           <h1>We’re here to help you find a way forward.</h1>
           <p>Ask about energy services, service availability, or community connections. Share a little about what you need and our team will follow up.</p>
-          <a className="contact-email-link" href="mailto:hello@gridbloom-sl.com">hello@gridbloom-sl.com <span aria-hidden="true">↗</span></a>
+          <a className="contact-email-link" href="mailto:hello@gridbloom.com">hello@gridbloom.com <span aria-hidden="true">↗</span></a>
         </div>
       </section>
 
